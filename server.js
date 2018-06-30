@@ -69,7 +69,12 @@ app.get('/help', (request,response) => {
     //year : new Date().getFullYear()
   });
 });
-
+app.get('/projects',(request,response) => {
+  request.render('about.hbs',{
+    pagetitle:"My projects",
+    message : "These are my projects -"
+  });
+});
 app.listen(port, () => {
   console.log(`Server is listening on port : ${port}`);
 });
