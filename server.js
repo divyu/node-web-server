@@ -13,7 +13,7 @@ Where:
 const hbs = require('hbs');
 const express = require('express');
 const fs = require('fs');
-
+const port = process.env.PORT || 3030;
 var app = express();
 app.set('view engine','hbs');
 hbs.registerPartials(__dirname+'/views/partials');
@@ -35,14 +35,14 @@ app.use( (req, res , next) => {
   })
   next();
 });
-
+/*
 app.use( (req,res,next) => {
   res.render('about.hbs',{
     pagetitle : "Maintenance",
     message : "Maintenance in progress. We will be right back to you soon !!"
   });
 });
-
+*/
 app.use(express.static(__dirname+'/public')); // express middleware
 
 app.get ('/', (request,response) => {
@@ -70,6 +70,6 @@ app.get('/help', (request,response) => {
   });
 });
 
-app.listen(3030, () => {
-  console.log("Server is listening on port : 3030");
+app.listen(port, () => {
+  console.log(`Server is listening on port : ${port}`);
 });
