@@ -70,7 +70,7 @@ app.get('/help', (request,response) => {
   });
 });
 app.get('/projects',(request,response) => {
-  request.render('about.hbs',{
+  response.render('about.hbs',{
     pagetitle:"My projects",
     message : "These are my projects -"
   });
